@@ -4,4 +4,4 @@ Generates a password based on the user's selections. Users can pick the number o
 
 [https://kimcc.github.io/challenge-3/](https://kimcc.github.io/challenge-3/)
 
-![Screenshot of password generator](../image.png)
+![Screenshot of password generator](image.png)
