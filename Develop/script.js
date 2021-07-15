@@ -1,11 +1,10 @@
 // Get password length
-var passwordLength = function() {
-    var lengthNum = window.prompt(
+const passwordLength = function() {
+    const lengthNum = window.prompt(
             "How many characters would you like in your password? Choose a length that is at least 8 characters and no more than 128 characters.");
 
     if (Number.isInteger(parseInt(lengthNum))) {
         if (lengthNum && lengthNum >= 8 && lengthNum <= 128) {
-            console.log(lengthNum);
             return lengthNum;
         } else {
             // Have the user enter again if the number doesn't fit with the acceptable range
@@ -21,14 +20,14 @@ var passwordLength = function() {
 };
 
 // Check what options the user wants for their password
-var characterType = function() {
+const characterType = function() {
 
-    var charTypes = ""
+    let charTypes = ""
 
-    var lowercase = window.confirm("Would you like to include lowercase letters?");
-    var uppercase = window.confirm("Would you like to include uppercase letters?");
-    var numeric = window.confirm("Would you like to include numeric characters?");
-    var special = window.confirm("Would you like to include special characters?");
+    const lowercase = window.confirm("Would you like to include lowercase letters?");
+    const uppercase = window.confirm("Would you like to include uppercase letters?");
+    const numeric = window.confirm("Would you like to include numeric characters?");
+    const special = window.confirm("Would you like to include special characters?");
 
     if (lowercase) {
         charTypes += "abcdefghijklmnopqrstuvwxyz";
@@ -50,32 +49,28 @@ var characterType = function() {
 }
 
 // Generate the password
-var generatePassword = function(length, charType) {
-    var password = "";
+const generatePassword = function(length, charType) {
+    let password = "";
 
     // Get random characters from the string. Number of characters is the length the user entered
-    for (var i = 0; i < length; i++) {
+    for (let i = 0; i < length; i++) {
         password+=charType.charAt(Math.random()*charType.length);
     }
-    console.log(charType);
-    console.log("the password?? " + password);
     return password;
 }
 
 // Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
+const generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
 
-    var charType = characterType();
-    var length = passwordLength(); 
-    var password = generatePassword(length, charType);
-    var passwordText = document.querySelector("#password");
+    const charType = characterType();
+    const length = passwordLength(); 
+    const password = generatePassword(length, charType);
+    const passwordText = document.querySelector("#password");
 
     passwordText.value = password;
-    console.log("the password" + password);
-    console.log(length);
 }
 
 // Add event listener to generate button
